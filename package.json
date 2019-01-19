@@ -24,6 +24,9 @@
   "keywords": [
     "webpack",
     "webpack-plugin",
-    "nwjs"
+    "nwjs",
+    "livereload",
+    "live",
+    "reload"
   ]
 }
