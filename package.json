@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/alex-rokabilis/nwjs-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/alex-rokabilis/nwjs-webpack-plugin#readme"
+  "homepage": "https://github.com/alex-rokabilis/nwjs-webpack-plugin#readme",
+  "keywords": ["webpack","webpack-plugin","nwjs"]
 }
