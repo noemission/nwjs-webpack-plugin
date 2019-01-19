@@ -11,5 +11,14 @@
   "dependencies": {
     "get-port": "^4.1.0",
     "webpack": "^4.28.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-rokabilis/nwjs-webpack-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alex-rokabilis/nwjs-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/alex-rokabilis/nwjs-webpack-plugin#readme"
 }
