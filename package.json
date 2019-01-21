@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ansi-to-html": "^0.6.9",
     "get-port": "^4.1.0",
     "webpack": "^4.28.4"
   },
