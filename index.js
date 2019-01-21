@@ -39,7 +39,7 @@ module.exports = class NwJSPlugin {
     apply(compiler) {
 
         const definePort = (port) => {
-            new DefinePlugin({ 'THE_PORT': port }).apply(compiler);
+            new DefinePlugin({ 'NwJSPlugin_PORT': port }).apply(compiler);
             return true;
         }
 

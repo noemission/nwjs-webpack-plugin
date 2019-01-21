@@ -2,7 +2,7 @@ const net = require('net');
 
 const randomNumber = Math.random() * 10e9 | 0;
 const randomID = `webpack-error-message-${randomNumber}`
-const client = net.connect({ port: THE_PORT }, () => console.log('Live reload connected!'))
+const client = net.connect({ port: NwJSPlugin_PORT }, () => console.log('Live reload connected!'))
 
 const css = `
 #${randomID}{
