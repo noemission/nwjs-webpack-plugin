@@ -1,8 +1,9 @@
 const net = require('net')
 const getPort = require('get-port');
 const path = require('path')
-const SingleEntryPlugin = require('webpack/lib/SingleEntryPlugin')
-const DefinePlugin = require('webpack/lib/DefinePlugin')
+const SingleEntryPlugin = require('webpack/lib/SingleEntryPlugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const spawn = require('cross-spawn');
 
 module.exports = class NwJSPlugin {
     constructor() {
@@ -24,7 +25,7 @@ module.exports = class NwJSPlugin {
     }
     runNW() {
         if (this.nw_instance && this.nw_instance.pid) return;
-        this.nw_instance = require('child_process').spawn('nw', [process.cwd()], {
+        this.nw_instance = spawn('nw', [process.cwd()], {
             stdio: "inherit"
         });
     }
