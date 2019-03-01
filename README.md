@@ -29,7 +29,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-        new NwjsWebpackPlugin()
+        new NwjsWebpackPlugin({
+            command: 'nw'
+        })
     ],
     watch: true
 }
