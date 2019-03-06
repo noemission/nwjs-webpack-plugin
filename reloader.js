@@ -30,7 +30,9 @@ client.on('data', (data) => {
     data = JSON.parse(data.toString())
     console.log("Server:", data);
     if (data.status === 'DONE') {
-        location.reload();
+        if(location && location.reload){
+            location.reload();
+        }
     }
     if (data.status === 'ERROR') {
         data.errors.forEach(err => {

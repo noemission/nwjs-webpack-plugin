@@ -1,20 +1,16 @@
 {
   "name": "nwjs-webpack-plugin",
   "version": "0.4.0",
-  "description": "",
+  "description": "A webpack plugin that provides live reload capabilities during development of NW.js applications. Something like webpack-dev-server for NW.js.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Alex Michailidis <alekos_l2@hotmail.com> (https://github.com/alex-rokabilis)",
   "contributors": [
-    {
-      "name": "Marius Guščius",
-      "email": "masterj2@gmail.com",
-      "url": "https://github.com/masterjg"
-    }
+    "Marius Guščius <masterj2@gmail.com> (https://github.com/masterjg)"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "ansi-to-html": "^0.6.9",
     "get-port": "^4.1.0",
