@@ -29,19 +29,23 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-        new NwjsWebpackPlugin({
-            command: 'nw'
-        })
+        new NwjsWebpackPlugin()
     ],
     watch: true
 }
 ```
+## Options
+
+|Name|Type|Default|Description|
+|:--:|:--:|:-----:|:----------|
+|**`command`**|`{String}`|`nw`|Path to *nw* executable that will be used to start the application|
+|**`commandDir`**|`{String}`|`wepack's outputPath`|Path pointing to the application's dist folder|
 
 ## Todo
 - [x] Auto start NW after build
 - [x] Provide error overlay
 - [ ] Remove unnecessary logs
-- [ ] Accept options from configuration
+- [x] Accept options from configuration
 - [ ] Further testing
 - [ ] HMR
 - [ ] Provide more webpack's events/stats for client to consume
