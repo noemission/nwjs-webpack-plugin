@@ -6,8 +6,10 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const spawn = require('cross-spawn');
 
 module.exports = class NwJSPlugin {
-    constructor(options) {
-        this.options = options || {};
+    constructor({ command, commandDir }) {
+        this.command = command || 'nw';
+        this.commandDir = commandDir;
+
         this.portPromise = getPort();
         this.sockets = [];
 
@@ -17,16 +19,18 @@ module.exports = class NwJSPlugin {
                 if (this.lastErrorMessage) {
                     socket.write(JSON.stringify(this.lastErrorMessage))
                 }
+                socket.on('close', () => {
+                    this.sockets = this.sockets.filter(s => s != socket)
+                })
             })
                 .listen(port)
-                .on('listening', () => console.log('listening on ' + port))
+                .on('error', console.error)
         })
-
 
     }
     runNW() {
         if (this.nw_instance && this.nw_instance.pid) return;
-        this.nw_instance = spawn(this.options.command || 'nw', [process.cwd()], {
+        this.nw_instance = spawn(this.command, [this.commandDir], {
             stdio: "inherit"
         });
     }
@@ -48,9 +52,7 @@ module.exports = class NwJSPlugin {
         compiler.hooks.watchRun.tapPromise('NwJSPlugin', c => this.portPromise.then(definePort));
         compiler.hooks.run.tapPromise('NwJSPlugin', c => this.portPromise.then(definePort));
 
-
         compiler.hooks.entryOption.tap('NwJSPlugin', () => {
-
             new SingleEntryPlugin(__dirname, path.resolve(__dirname, 'reloader.js'), 'reloader').apply(compiler)
         })
 
@@ -61,6 +63,7 @@ module.exports = class NwJSPlugin {
         });
 
         compiler.hooks.done.tap('NwJSPlugin', (stats) => {
+            this.commandDir = this.commandDir || compiler.outputPath
             this.runNW();
             if (stats.compilation.errors.length) {
                 this.write({
