@@ -6,10 +6,11 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const spawn = require('cross-spawn');
 
 module.exports = class NwJSPlugin {
-    constructor({ command, commandDir }) {
+    constructor({ command, commandDir, args }) {
         this.command = command || 'nw';
         this.commandDir = commandDir;
-
+        this.args = args || []
+        
         this.portPromise = getPort();
         this.sockets = [];
 
@@ -30,7 +31,10 @@ module.exports = class NwJSPlugin {
     }
     runNW() {
         if (this.nw_instance && this.nw_instance.pid) return;
-        this.nw_instance = spawn(this.command, [this.commandDir], {
+        this.nw_instance = spawn(this.command, [
+            this.commandDir,
+            ...this.args
+        ], {
             stdio: "inherit"
         });
     }

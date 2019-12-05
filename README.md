@@ -40,6 +40,7 @@ module.exports = {
 |:--:|:--:|:-----:|:----------|
 |**`command`**|`{String}`|`nw`|Path to *nw* executable that will be used to start the application|
 |**`commandDir`**|`{String}`|`wepack's outputPath`|Path pointing to the application's dist folder|
+|**`args`**|`{String[]}`|`[]`|Pass extra arguments to the NW process|
 
 ## Todo
 - [x] Auto start NW after build
