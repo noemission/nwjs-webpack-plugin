@@ -15,7 +15,7 @@
     "ansi-to-html": "^0.6.9",
     "get-port": "^4.1.0",
     "cross-spawn": "^6.0.5",
-    "webpack": "^4.28.4"
+    "webpack": "^5.75.0"
   },
   "devDependencies": {},
   "repository": {
